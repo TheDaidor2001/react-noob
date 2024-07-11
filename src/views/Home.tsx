@@ -42,6 +42,7 @@ export const Home = (): JSX.Element => {
                             placeholder="search by title"
                             value={search}
                             onChange={handleChangeShearch}
+                            className='filter-search'
                         />
                     </label>
                     <label className="select">

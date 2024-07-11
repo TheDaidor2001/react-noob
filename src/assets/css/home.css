@@ -22,13 +22,14 @@
     max-width: 350px;
 }
 
-.trips-filter__search input {
+.trips-filter__search .filter-search {
     padding-left: 50px;
     background-color: var(--color-white);
     background-image: url('../images/search.svg');
     background-repeat: no-repeat;
     background-position: 15px 50%;
     background-size: 22px;
+
 }
 
 /* trips */

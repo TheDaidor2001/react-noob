@@ -11,10 +11,11 @@ interface Props {
     autocomplete?: string;
     placeholder?: string;
     min?: string;
-    max?: string
+    max?: string;
+    className?: string
 }
 
-export const Input = ({ data_test_id, name, onChange, type, value, autocomplete, placeholder, min, max }: Props): JSX.Element => {
+export const Input = ({ data_test_id, name, onChange, type, value, autocomplete, placeholder, min, max, className }: Props): JSX.Element => {
     return (
         <input
             data-test-id={data_test_id}
@@ -27,6 +28,7 @@ export const Input = ({ data_test_id, name, onChange, type, value, autocomplete,
             placeholder={placeholder}
             min={min}
             max={max}
+            className={className}
         />
     )
 }

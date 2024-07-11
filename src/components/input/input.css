@@ -1,11 +1,5 @@
 /* input */
 
-.input {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
 .input__heading {
     font-size: var(--font-size-100);
     line-height: 1;
