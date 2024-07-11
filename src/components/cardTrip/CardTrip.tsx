@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
-import { Trip } from '../../interfaces/trip.interface'
+import { Trip } from '../../interfaces/interfaces'
+import { Button } from '../components'
+
+import './cardTrip.css'
+
 
 interface Props {
     trip: Trip
@@ -40,9 +43,13 @@ export const CardTrip = ({ trip }: Props): JSX.Element => {
                     </strong>
                 </div>
             </div>
-            <Link data-test-id="trip-card-link" to={`/trip/${id}`} className="button">
-                Discover a trip
-            </Link>
+            <Button
+                type='link'
+                data_test_id="trip-card-link"
+                to={`/trip/${id}`}
+                text="Discover a trip"
+                className='button'
+            />
         </li>
     )
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import { SignUpForm } from "../components/signUpForm/SignUpForm"
-import { FooterForm } from "../components/footerForm/FooterForm"
+import { ROUTES } from "../enums/apiRoutes"
+import { FooterForm, SignUpForm } from "../components/components"
 
 
 
@@ -11,7 +11,7 @@ export const SignUp = (): JSX.Element => {
     const navigate = useNavigate()
 
     const onSubmit = () => {
-        navigate('/')
+        navigate(ROUTES.HOME)
     }
 
     return (
@@ -22,7 +22,7 @@ export const SignUp = (): JSX.Element => {
             />
             <FooterForm
                 text=" Already have an account?"
-                link="/sign-in"
+                link={ROUTES.LOGIN}
                 dataTestId="auth-sign-in-link"
                 className="sign-up-form__link"
                 linkText="Sign In"

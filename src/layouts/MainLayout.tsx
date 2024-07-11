@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom"
-import Header from "../components/header/Header"
-import Footer from "../components/footer/Footer"
+
 
 import './mainLayouts.css'
+import { Footer, Header } from "../components/components"
 
 export const MainLayout = (): JSX.Element => {
     return (
         <>
-            <Header />
+            <Header isLogged />
             <main>
                 <Outlet />
             </main>

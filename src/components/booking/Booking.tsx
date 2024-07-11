@@ -1,14 +1,15 @@
-import { getCurrentDate } from "../../helpers/getCurrentDate";
-import { Booking as BookingInterface } from "../../interfaces/bookings.interface"
+
+import { Booking as BookingInterface } from "../../interfaces/interfaces"
+import { getCurrentDate } from '../../helpers/helpers';
 
 interface Props {
     booking: BookingInterface,
     handleClick: (id: string) => void;
 }
 
-export const Booking = ({ booking, handleClick }: Props) => {
+export const Booking = ({ booking, handleClick }: Props): JSX.Element => {
 
-    const { id, tripId, date, totalPrice, guests, trip } = booking
+    const { id, date, totalPrice, guests, trip } = booking
     const { title } = trip
     return (
         <li data-test-id="booking" className="booking" key={id}>
@@ -22,7 +23,7 @@ export const Booking = ({ booking, handleClick }: Props) => {
             <span data-test-id="booking-total" className="booking__total">
                 ${totalPrice}
             </span>
-            <button data-test-id="booking-cancel" className="booking__cancel" title="Cancel booking" onClick={() => handleClick(tripId)}>
+            <button data-test-id="booking-cancel" className="booking__cancel" title="Cancel booking" onClick={() => handleClick(id)}>
                 <span className="visually-hidden">Cancel booking</span>
                 ×
             </button>

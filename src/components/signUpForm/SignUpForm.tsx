@@ -1,4 +1,6 @@
 import { FormEvent, useState } from "react";
+import { Button, Input } from "../components";
+
 
 interface Props {
     onSubmit: () => void;
@@ -30,41 +32,43 @@ export const SignUpForm = ({ onSubmit }: Props): JSX.Element => {
             <h2 className="sign-up-form__title">Sign Up</h2>
             <label className="input">
                 <span className="input__heading">Full name</span>
-                <input
-                    data-test-id="auth-full-name"
+                <Input
+                    data_test_id="auth-full-name"
                     name="full-name"
                     type="text"
-                    required
                     value={data.fullName}
                     onChange={(e) => setData({ ...data, fullName: e.target.value })}
                 />
             </label>
             <label className="input">
                 <span className="input__heading">Email</span>
-                <input
-                    data-test-id="auth-email"
+                <Input
+                    data_test_id="auth-email"
                     name="email"
                     type="email"
-                    required
                     value={data.email}
                     onChange={(e) => setData({ ...data, email: e.target.value })}
                 />
             </label>
             <label className="input">
                 <span className="input__heading">Password</span>
-                <input
-                    data-test-id="auth-password"
+                <Input
+                    data_test_id="auth-password"
                     name="password"
                     type="password"
-                    autoComplete="new-password"
-                    required
+                    autocomplete="new-password"
                     value={data.password}
                     onChange={(e) => setData({ ...data, password: e.target.value })}
                 />
             </label>
-            <button data-test-id="auth-submit" className="button" type="submit">
-                Sign Up
-            </button>
+            <Button
+                data_test_id="auth-submit"
+                className="button"
+                type="button"
+                btnType="submit"
+                text="Sign Up"
+                to=""
+            />
         </form>
     );
 }

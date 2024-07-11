@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { ROUTES } from '../../enums/apiRoutes';
+import { Button } from '../components';
+
 
 interface Props {
     user: string;
 }
 
-const Profile = ({ user }: Props): JSX.Element => {
+export const Profile = ({ user }: Props): JSX.Element => {
     return (
         <div data-test-id="header-profile-nav" className="nav-header__inner profile-nav" tabIndex={0}>
             <span className="visually-hidden">Profile</span>
@@ -14,14 +16,18 @@ const Profile = ({ user }: Props): JSX.Element => {
                     John Doe
                 </li>
                 <li className="profile-nav__item">
-                    <Link data-test-id="header-profile-nav-sign-out" to="/sign-in" className="profile-nav__sign-out button">
-                        Sign Out
-                    </Link>
+                    <Button
+                        type=''
+                        data_test_id="header-profile-nav-sign-out"
+                        to={ROUTES.LOGIN}
+                        text="Sign Out"
+                        className="profile-nav__sign-out button"
+                    />
                 </li>
             </ul>
         </div>
     )
 }
 
-export default Profile;
+
 

@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import trips from '../assets/data/trips.json'
-import { CardTrip } from '../components/cardTrip/CardTrip'
-import { Trip } from '../interfaces/trip.interface';
-import { useFilters } from '../hooks/useFilters';
+import { Trip } from '../interfaces/interfaces';
+import { useFilters } from '../hooks/hooks';
+import { CardTrip, Input, Select } from '../components/components';
 
-
-
+import '../assets/css/home.css'
 
 
 export const Home = (): JSX.Element => {
@@ -36,25 +35,41 @@ export const Home = (): JSX.Element => {
                 <form className="trips-filter__form" autoComplete="off">
                     <label className="trips-filter__search input">
                         <span className="visually-hidden">Search by name</span>
-                        <input data-test-id="filter-search" name="search" type="search" placeholder="search by title" value={search} onChange={handleChangeShearch} />
+                        <Input
+                            data_test_id="filter-search"
+                            name="search"
+                            type="search"
+                            placeholder="search by title"
+                            value={search}
+                            onChange={handleChangeShearch}
+                        />
                     </label>
                     <label className="select">
                         <span className="visually-hidden">Search by duration</span>
-                        <select data-test-id="filter-duration" name="duration" defaultValue="all" onChange={handleChangeDurantion}>
-                            <option value="all" selected>duration</option>
+                        <Select
+                            data_test_id='filter-duration'
+                            name='duration'
+                            onChange={handleChangeDurantion}
+                        >
+                            <option value="all">duration</option>
                             <option value="0_x_5"> 5 days</option>
                             <option value="5_x_10"> 10 days</option>
                             <option value="10">≥ 10 days</option>
-                        </select>
+                        </Select>
+
                     </label>
                     <label className="select">
                         <span className="visually-hidden">Search by level</span>
-                        <select data-test-id="filter-level" name="level" defaultValue="all" onChange={handleChangeLevel}>
-                            <option value="all" selected>level</option>
+                        <Select
+                            data_test_id='filter-level'
+                            name='level'
+                            onChange={handleChangeLevel}
+                        >
+                            <option value="all">level</option>
                             <option value="easy">easy</option>
                             <option value="moderate">moderate</option>
                             <option value="difficult">difficult</option>
-                        </select>
+                        </Select>
                     </label>
                 </form>
             </section>

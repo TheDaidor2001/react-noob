@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Button, Input } from "../components"
+
 
 interface Props {
     onSubmit: () => void
@@ -28,30 +30,33 @@ export const SignInForm = ({ onSubmit }: Props): JSX.Element => {
             <h2 className="sign-in-form__title">Sign In</h2>
             <label className="input">
                 <span className="input__heading">Email</span>
-                <input
-                    data-test-id="auth-email"
+                <Input
+                    data_test_id="auth-email"
                     name="email"
                     type="email"
-                    required
                     value={data.email}
                     onChange={e => setData({ ...data, email: e.target.value })}
                 />
             </label>
             <label className="input">
                 <span className="input__heading">Password</span>
-                <input
-                    data-test-id="auth-password"
+                <Input
+                    data_test_id="auth-password"
                     name="password"
                     type="password"
-                    autoComplete="new-password"
-                    required
+                    autocomplete="new-password"
                     value={data.password}
                     onChange={e => setData({ ...data, password: e.target.value })}
                 />
             </label>
-            <button data-test-id="auth-submit" className="button" type="submit">
-                Sign In
-            </button>
+            <Button
+                data_test_id="auth-submit"
+                className="button"
+                type="button"
+                text="Sign In"
+                to=""
+                btnType="submit"
+            />
         </form>
     )
 }

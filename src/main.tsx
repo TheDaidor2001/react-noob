@@ -12,11 +12,12 @@ import { LoginLayout } from './layouts/LoginLayout.tsx';
 import { SignIn } from './views/SignIn.tsx';
 import { Trip } from './views/Trip.tsx';
 import { Bookings } from './views/Bookings.tsx';
+import { ROUTES } from './enums/apiRoutes.ts';
 
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES.HOME,
     element: <MainLayout />,
     children: [
       {
@@ -24,26 +25,26 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: '/trip/:tripId',
+        path: ROUTES.TRIP_ID,
         element: <Trip />
       },
       {
-        path: '/bookings',
+        path: ROUTES.BOOKINGS,
         element: <Bookings />
       }
 
     ]
   },
   {
-    path: '/',
+    path: ROUTES.HOME,
     element: <LoginLayout />,
     children: [
       {
-        path: '/sign-in',
+        path: ROUTES.LOGIN,
         element: <SignIn />
       },
       {
-        path: '/sign-up',
+        path: ROUTES.REGISTER,
         element: <SignUp />
       },
     ]

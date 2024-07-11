@@ -1,8 +1,12 @@
 import { useParams } from "react-router-dom";
 import tripInitialData from '../assets/data/trips.json'
-import { Trip as TripInterface } from "../interfaces/trip.interface";
+import { Trip as TripInterface } from "../interfaces/interfaces";
 import { useState } from "react";
-import { Modal } from "../components/modal/Modal";
+
+
+import '../assets/css/trip.css'
+import { Button, Modal } from "../components/components";
+
 
 export const Trip = () => {
 
@@ -56,9 +60,15 @@ export const Trip = () => {
                             ${price}
                         </strong>
                     </div>
-                    <button data-test-id="trip-details-button" className="trip__button button" onClick={handleButtonClick}>
-                        Book a trip
-                    </button>
+                    <Button
+                        data_test_id="trip-details-button"
+                        className="trip__button button"
+                        onClick={handleButtonClick}
+                        to=""
+                        text="Book a trip"
+                        type="button"
+                    />
+
                 </div>
             </div>
             <Modal

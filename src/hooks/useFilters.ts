@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Trip } from "../interfaces/trip.interface";
+import { Trip } from "../interfaces/interfaces";
 
 export function useFilters() {
     const [filters, setFilters] = useState({
@@ -30,6 +30,8 @@ export function useFilters() {
             );
         });
     }
+
+    
 
     return { setFilters, changeFilters, filters, setSearch, search }
 }

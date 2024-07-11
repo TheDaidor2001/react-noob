@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Trip } from "../../interfaces/trip.interface";
+
+import './modal.css'
+import { Booking } from "../../interfaces/interfaces";
+import { ROUTES } from "../../enums/apiRoutes";
+import { Trip } from "../../interfaces/interfaces";
 import { useNavigate } from "react-router-dom";
-import { Booking } from "../../interfaces/bookings.interface";
+import { useState } from "react";
 import bookings from '../../assets/data/bookings.json';
-
-
 
 interface Props {
     isModalVisible: boolean;
@@ -52,14 +53,14 @@ export const Modal = ({ handleButtonClick, isModalVisible, trip }: Props): JSX.E
                 duration
             },
             totalPrice: price * +guests,
-            userId: '1dd97a12-848f-4a1d-8a7d-34a2132fca94'
+            userId: window.crypto.randomUUID()
         }
 
 
         bookings.push(booking);
 
         handleButtonClick()
-        navigate('/bookings')
+        navigate(ROUTES.BOOKINGS)
 
     }
 

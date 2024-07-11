@@ -1,7 +1,7 @@
 import footerImg from '../../assets/images/heart.svg'
 import './footer.css'
 
-const Footer = (): JSX.Element => {
+export const Footer = (): JSX.Element => {
     return (
         <footer className="footer">
             <span className="footer__text">
@@ -16,4 +16,4 @@ const Footer = (): JSX.Element => {
     );
 }
 
-export default Footer;
+

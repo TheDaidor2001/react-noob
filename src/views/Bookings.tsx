@@ -1,14 +1,17 @@
 import { useState } from "react"
 import bookingsInitalData from '../assets/data/bookings.json'
-import { Booking as BookingInterface } from "../interfaces/bookings.interface";
-import { Booking } from "../components/booking/Booking";
+import { Booking as BookingInterface } from "../interfaces/interfaces";
+import { Booking } from "../components/components";
+
+
+import '../assets/css/booking.css';
 
 export const Bookings = () => {
 
     const [bookings, setBookings] = useState<BookingInterface[]>(bookingsInitalData);
 
     const handleClick = (id: string) => {
-        const filteredBookings = bookings.filter((item) => item.tripId !== id);
+        const filteredBookings = bookings.filter((item) => item.id !== id);
         setBookings(filteredBookings);
     }
 
