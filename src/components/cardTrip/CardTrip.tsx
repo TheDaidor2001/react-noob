@@ -1,7 +1,7 @@
-import { Trip } from '../../interfaces/interfaces'
-import { Button } from '../components'
 
 import './cardTrip.css'
+import { Button } from '../components'
+import { Trip } from '../../interfaces/interfaces'
 
 
 interface Props {

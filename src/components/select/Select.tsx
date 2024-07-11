@@ -1,6 +1,6 @@
-import { ChangeEventHandler, ReactNode } from "react";
 
 import './select.css'
+import { ChangeEventHandler, ReactNode } from "react";
 
 
 interface Props {

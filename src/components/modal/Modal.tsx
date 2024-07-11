@@ -1,10 +1,10 @@
 
 import './modal.css'
-import { Booking } from "../../interfaces/interfaces";
+import { Booking, Trip } from '../../interfaces/interfaces';
+import { Button, Input } from '../components';
 import { ROUTES } from "../../enums/apiRoutes";
-import { Trip } from "../../interfaces/interfaces";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import bookings from '../../assets/data/bookings.json';
 
 interface Props {
@@ -14,8 +14,9 @@ interface Props {
 }
 
 export const Modal = ({ handleButtonClick, isModalVisible, trip }: Props): JSX.Element => {
-
     const { title, price, level, duration, id } = trip
+    const [total, setTotal] = useState(price)
+
     const navigate = useNavigate();
 
     const [date, setDate] = useState('')
@@ -52,7 +53,7 @@ export const Modal = ({ handleButtonClick, isModalVisible, trip }: Props): JSX.E
                 price,
                 duration
             },
-            totalPrice: price * +guests,
+            totalPrice: total,
             userId: window.crypto.randomUUID()
         }
 
@@ -63,6 +64,10 @@ export const Modal = ({ handleButtonClick, isModalVisible, trip }: Props): JSX.E
         navigate(ROUTES.BOOKINGS)
 
     }
+
+    useEffect(() => {
+        setTotal(price * +guests)
+    }, [guests, price])
 
     return (
         <div hidden={!isModalVisible}>
@@ -87,21 +92,40 @@ export const Modal = ({ handleButtonClick, isModalVisible, trip }: Props): JSX.E
                         </div>
                         <label className="input">
                             <span className="input__heading">Date</span>
-                            <input data-test-id="book-trip-popup-date" name="date" type="date" required value={date} onChange={e => setDate(e.target.value)} />
+                            <Input
+                                data_test_id='book-trip-popup-date'
+                                name='date'
+                                type='date'
+                                value={date}
+                                onChange={e => setDate(e.target.value)}
+                            />
                         </label>
                         <label className="input">
                             <span className="input__heading">Number of guests</span>
-                            <input data-test-id="book-trip-popup-guests" name="guests" type="number" min="1" max="10" value={guests} onChange={e => setGuests(e.target.value)} required />
+                            <Input
+                                data_test_id='book-trip-popup-guests'
+                                name='guests'
+                                type='number'
+                                min='1'
+                                max='10'
+                                value={guests}
+                                onChange={e => setGuests(e.target.value)}
+                            />
                         </label>
                         <span className="book-trip-popup__total">
                             Total:
                             <output data-test-id="book-trip-popup-total-value" className="book-trip-popup__total-value">
-                                ${price}
+                                ${total}
                             </output>
                         </span>
-                        <button data-test-id="book-trip-popup-submit" className="button" type="submit">
-                            Book a trip
-                        </button>
+                        <Button
+                            data_test_id='book-trip-popup-submit'
+                            type='button'
+                            btnType='submit'
+                            className='button'
+                            to=''
+                            text='Book a trip'
+                        />
                     </form>
                 </div>
             </div>

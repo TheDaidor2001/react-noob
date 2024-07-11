@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import trips from '../assets/data/trips.json'
-import { Trip } from '../interfaces/interfaces';
-import { useFilters } from '../hooks/hooks';
-import { CardTrip, Input, Select } from '../components/components';
 
 import '../assets/css/home.css'
+import { CardTrip, Input, Select } from '../components/components';
+import { Trip } from '../interfaces/interfaces';
+import { useFilters } from '../hooks/hooks';
+import { useState } from 'react'
+import trips from '../assets/data/trips.json'
 
 
 export const Home = (): JSX.Element => {

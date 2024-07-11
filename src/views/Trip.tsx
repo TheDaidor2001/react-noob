@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
-import tripInitialData from '../assets/data/trips.json'
-import { Trip as TripInterface } from "../interfaces/interfaces";
-import { useState } from "react";
 
 
 import '../assets/css/trip.css'
 import { Button, Modal } from "../components/components";
+import { Trip as TripInterface } from "../interfaces/interfaces";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import tripInitialData from '../assets/data/trips.json'
 
 
 export const Trip = () => {

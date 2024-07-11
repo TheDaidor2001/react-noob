@@ -1,5 +1,5 @@
-import footerImg from '../../assets/images/heart.svg'
 import './footer.css'
+import footerImg from '../../assets/images/heart.svg'
 
 export const Footer = (): JSX.Element => {
     return (

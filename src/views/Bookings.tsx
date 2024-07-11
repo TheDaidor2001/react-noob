@@ -1,7 +1,7 @@
+import { Booking } from "../components/components";
+import { Booking as BookingInterface } from "../interfaces/interfaces";
 import { useState } from "react"
 import bookingsInitalData from '../assets/data/bookings.json'
-import { Booking as BookingInterface } from "../interfaces/interfaces";
-import { Booking } from "../components/components";
 
 
 import '../assets/css/booking.css';

@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom"
-import { ROUTES } from "../enums/apiRoutes"
 import { FooterForm, SignUpForm } from "../components/components"
+import { ROUTES } from "../enums/apiRoutes"
+import { useNavigate } from "react-router-dom"
 
 
 
