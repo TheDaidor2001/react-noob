@@ -9,21 +9,24 @@ interface Props {
 export const SignUpForm = ({ onSubmit }: Props): JSX.Element => {
 
     const [data, setData] = useState({ fullName: '', email: '', password: '' })
+    const [errors, setErrors] = useState({ email: '', password: '', fullName: '', all: '' });
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const { email, fullName, password } = data
 
         if (!fullName || !email || !password) {
-            alert('Please fill all fields')
+            setErrors({ ...errors, all: 'All fields are required' })
             return
         }
 
         if (password.length < 3 || password.length > 20) {
-            alert('Password must be between 3 and 20 characters')
+            setErrors({ ...errors, password: 'Password must bre between 3 and 20 characters' })
             return
         }
 
+
+        setErrors({ email: '', password: '', fullName: '', all: '' })
         onSubmit()
     }
 
@@ -59,6 +62,7 @@ export const SignUpForm = ({ onSubmit }: Props): JSX.Element => {
                     autocomplete="new-password"
                     value={data.password}
                     onChange={(e) => setData({ ...data, password: e.target.value })}
+                    errors={errors}
                 />
             </label>
             <Button
@@ -69,6 +73,7 @@ export const SignUpForm = ({ onSubmit }: Props): JSX.Element => {
                 text="Sign Up"
                 to=""
             />
+            {errors.all && <p className="input__error">{errors.all}</p>}
         </form>
     );
 }

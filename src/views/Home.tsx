@@ -52,7 +52,7 @@ export const Home = (): JSX.Element => {
                             name='duration'
                             onChange={handleChangeDurantion}
                         >
-                            <option value="all">duration</option>
+                            <option value="">duration</option>
                             <option value="0_x_5"> 5 days</option>
                             <option value="5_x_10"> 10 days</option>
                             <option value="10">≥ 10 days</option>
@@ -66,7 +66,7 @@ export const Home = (): JSX.Element => {
                             name='level'
                             onChange={handleChangeLevel}
                         >
-                            <option value="all">level</option>
+                            <option value="">level</option>
                             <option value="easy">easy</option>
                             <option value="moderate">moderate</option>
                             <option value="difficult">difficult</option>

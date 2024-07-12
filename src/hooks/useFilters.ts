@@ -3,8 +3,8 @@ import { Trip } from "../interfaces/interfaces";
 
 export function useFilters() {
     const [filters, setFilters] = useState({
-        level: 'all',
-        duration: 'all',
+        level: '',
+        duration: '',
     })
     const [search, setSearch] = useState('');
 
@@ -12,7 +12,7 @@ export function useFilters() {
         return tripsData.filter((trip) => {
             const durationFilter = filters.duration;
             let matchesDuration = false;
-            if (durationFilter === 'all') {
+            if (durationFilter === '') {
                 matchesDuration = true;
             } else if (durationFilter === '0_x_5' && trip.duration >= 1 && trip.duration <= 5) {
                 matchesDuration = true;
@@ -23,7 +23,7 @@ export function useFilters() {
             }
 
             return (
-                (filters.level === 'all' || trip.level === filters.level) &&
+                (filters.level === '' || trip.level === filters.level) &&
                 matchesDuration &&
                 trip.title.toLowerCase().includes(search.toLowerCase())
 

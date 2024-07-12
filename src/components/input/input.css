@@ -21,3 +21,8 @@
     color: var(--color-blue-400);
     opacity: 0.4;
 }
+
+.input__error {
+    font-size: 13px;
+    color: red;
+}

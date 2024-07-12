@@ -12,23 +12,32 @@ interface Props {
     placeholder?: string;
     min?: string;
     max?: string;
-    className?: string
+    className?: string,
+    errors?: {
+        password?: string,
+        email?: string
+        fullName?: string
+    };
 }
 
-export const Input = ({ data_test_id, name, onChange, type, value, autocomplete, placeholder, min, max, className }: Props): JSX.Element => {
+export const Input = ({ data_test_id, name, onChange, type, value, autocomplete, placeholder, min, max, className, errors }: Props): JSX.Element => {
     return (
-        <input
-            data-test-id={data_test_id}
-            name={name}
-            type={type}
-            required
-            value={value}
-            onChange={onChange}
-            autoComplete={autocomplete}
-            placeholder={placeholder}
-            min={min}
-            max={max}
-            className={className}
-        />
+        <>
+            <input
+                data-test-id={data_test_id}
+                name={name}
+                type={type}
+                required
+                value={value}
+                onChange={onChange}
+                autoComplete={autocomplete}
+                placeholder={placeholder}
+                min={min}
+                max={max}
+                className={className}
+            />
+            {errors?.password && <p className="input__error">{errors.password}</p>}
+        </>
+
     )
 }

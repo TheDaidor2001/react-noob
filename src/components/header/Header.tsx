@@ -5,6 +5,7 @@ import user from '../../assets/images/user.svg'
 
 
 import './header.css'
+import { ROUTES } from '../../enums/apiRoutes';
 
 interface Props {
     isLogged: boolean
@@ -14,7 +15,7 @@ export const Header = ({ isLogged }: Props): JSX.Element => {
     return (
         <header className="header">
             <div className="header__inner">
-                <Link data-test-id="header-logo" to="/" className="header__logo">
+                <Link data-test-id="header-logo" to={ROUTES.HOME} className="header__logo">
                     Travel App
                 </Link>
                 {
